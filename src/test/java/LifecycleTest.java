@@ -1,5 +1,9 @@
+import org.example.Address;
 import org.junit.jupiter.api.*;
 
+import static org.junit.jupiter.api.Assertions.*;
+
+@DisplayName("Wykonujemy testy cyklu życia aplikacji")
 public class LifecycleTest {
 
     @BeforeAll
@@ -11,6 +15,7 @@ public class LifecycleTest {
         System.out.println("Setup EACH TEST in the class");
     }
     @Test
+    @DisplayName("Custom test name with spaces")
     void testOne(){
         System.out.println("TEST 1");
     }
@@ -18,6 +23,28 @@ public class LifecycleTest {
     void testTwo(){
         System.out.println("TEST 2");
     }
+    @Disabled("Na czas umieszczenia w kodzie mocków")
+    @Test
+    void skippedTest(){
+        System.out.println("TEST 3");
+    }
+
+//    @Test
+//    void standardAssertion(){
+//        assertEquals(2,2);
+//        assertTrue(true);
+//        assertFalse(false);
+//    }
+
+    @Test
+    void groupedAssertions() {
+        Address address = new Address("John","Kowalski");
+        assertAll("address",
+                () -> assertEquals("John", address.getFirstName()),
+                () -> assertEquals("Kowalski", address.getLastName()));
+    }
+
+
 
     @AfterEach
     void teardown(){
