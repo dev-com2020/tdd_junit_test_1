@@ -4,7 +4,7 @@ import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Wykonujemy testy cyklu życia aplikacji")
-public class LifecycleTest {
+public class LifecycleTest extends BaseTest{
 
     @BeforeAll
     static void setupAll(){
