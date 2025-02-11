@@ -17,7 +17,13 @@ public class CalculatorTest extends BaseTest {
     }, delimiter = ';')
     void testMulti(int a, int b, int expected) {
         Calculator calculator = new Calculator();
-        assertEquals(expected, calculator.multiply(a,b));
+        try {
+            assertEquals(expected, calculator.multiply(a,b));
+            test.pass("Test passed");
+        }catch (AssertionError e) {
+            test.fail("Test failed: " + e.getMessage());
+            throw e;
+        }
     }
 
     @ParameterizedTest
