@@ -1,11 +1,13 @@
+
 import org.example.Calculator;
+
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CalculatorTest {
+public class CalculatorTest extends BaseTest {
 
     @ParameterizedTest
     @CsvSource(value = {
@@ -24,4 +26,6 @@ public class CalculatorTest {
         Calculator calculator = new Calculator();
         assertEquals(expected, calculator.multiply(a,b));
     }
+
+
 }
