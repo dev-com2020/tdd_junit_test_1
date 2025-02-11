@@ -1,11 +1,14 @@
 import org.example.Calculator;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
+
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class testAddition {
 
-    @Test
+    @RepeatedTest(value = 2, name = "{displayName} {currentRepetition}/{totalRepetitions}")
+    @DisplayName("Test kalkulatora")
     void calcTest(){
     //      Arrange (przygotowanie)
 
